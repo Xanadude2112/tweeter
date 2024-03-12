@@ -16,7 +16,11 @@ nav span{
   font-weight: 600;
 }
 
-#newTweet-div{
+nav p b{
+  font-weight: 600;
+}
+
+.tweet-btn-container{
   display: flex;
   flex-direction: column;
   justify-content: center;
