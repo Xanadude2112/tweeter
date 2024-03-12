@@ -1,0 +1,16 @@
+header {
+  padding-top: 550px;
+  height: 400px;
+  width: 100dvw;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  align-items: center;
+  background-color: #d68800;
+  background-image: url("https://www.transparenttextures.com/patterns/cardboard.png");
+  color: #FFFFFF;
+}
+
+header span {
+  font-weight: 300;
+}
