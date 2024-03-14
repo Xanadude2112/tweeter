@@ -12,6 +12,7 @@
   height: auto; /* Allow automatic resizing based on content */
   min-height: 50px; /* Set minimum height to prevent it from collapsing */
   margin-bottom: 1%;
+  padding: 1.5%;
 }
 
 #tweet-text:focus{
