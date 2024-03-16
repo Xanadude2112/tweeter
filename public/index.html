@@ -33,6 +33,7 @@
     <link rel="stylesheet" href="/styles/nav.css" />
     <link rel="stylesheet" href="/styles/header.css" />
     <link rel="stylesheet" href="/styles/new-tweet.css" />
+    <link rel="stylesheet" href="/styles/tweet.css" />
 
     <!-- External JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -51,7 +52,7 @@
       </div>
     </nav>
 
-    <header>
+    <header id="page-header">
       <div>
         <img src="/images/profile-hex.png" />
       </div>
@@ -66,12 +67,29 @@
       <section class="new-tweet">
         <h2>Compose Tweet</h2>
         <form action="/tweets" method="POST">
-            <textarea name="text" id="tweet-text" placeholder="What are you humming about?"></textarea>
-            <div class="button-count">
-              <button type="submit">TWEET</button>
-              <output name="counter" class="counter" for="tweet-text">140</output>
-            </div>
+          <textarea
+            name="text"
+            id="tweet-text"
+            placeholder="What are you humming about?"
+          ></textarea>
+          <div class="button-count">
+            <button type="submit">TWEET</button>
+            <output name="counter" class="counter" for="tweet-text">140</output>
+          </div>
         </form>
+        <section class="all-tweets">
+          <article>
+            <header>
+              <p class="user"><i class="astro fa-solid fa-user-astronaut"></i> Hubert</p>
+              <p class="user-id">@HFarnsworth</p>
+            </header>
+            <p class="tweet-content">Futurama cracks me up all the time <span>#bitemyshinymetalass🤖</span></p>
+            <footer>
+              <p>1 hour ago</p>
+              <p class="icons"><i class="fa-solid fa-flag"></i><i class="fa-solid fa-retweet"></i><i class="fa-solid fa-heart"></i></p>
+            </footer>
+          </article>
+        </section>
       </section>
     </main>
     <script src="/scripts/composer-char-counter.js"></script>
