@@ -7,7 +7,7 @@
 }
 
 .all-tweets:hover{
-  box-shadow: 5px 5px rgb(171, 209, 242);
+  box-shadow: 5px 5px #abd1f2;
 }
 
 .user{
@@ -17,12 +17,12 @@
   gap: 20px;
 }
 
-.astro{
+.user-icon{
   font-size: 2.5rem;
 }
 
 .user-id{
-  color: rgb(190, 215, 237);
+  color: #bed7ed;
   font-weight: 500;
 }
 
@@ -41,7 +41,7 @@
 }
 
 .tweet-content span{
-  color: rgb(0, 157, 205);
+  color: #009dcd;
 }
 
 .all-tweets footer{
@@ -61,5 +61,5 @@
 }
 
 .icons i:hover{
-  color: rgb(255, 153, 0);
+  color: #ff9900;
 }
