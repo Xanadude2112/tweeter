@@ -4,36 +4,64 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
-const tweetData = {
-  user: {
-    name: "Newton",
-    avatars: "https://i.imgur.com/73hZDYK.png",
-    handle: "@SirIsaac",
+// Fake data taken from initial-tweets.json
+const data = [
+  {
+    "user": {
+      "name": "Hubert",
+      "handle": "@HJFarnsworth"
+    },
+    "content": {
+      "text": "Futurama cracks me up all the time <span>#bitemyshinymetalass🤖</span>" 
+    },
+    "created_at": "1 hour ago"
   },
-  content: {
-    text: "If I have seen further it is by standing on the shoulders of giants",
+  {
+    "user": {
+      "name": "Newton",
+      "avatars": "https://i.imgur.com/73hZDYK.png"
+      ,
+      "handle": "@SirIsaac"
+    },
+    "content": {
+      "text": "If I have seen further it is by standing on the shoulders of giants" 
+    },
+    "created_at": 1461116232227 
   },
-  created_at: 1461116232227,
-};
+  {
+    "user": {
+      "name": "Descartes",
+      "avatars": "https://i.imgur.com/nlhLi3I.png",
+      "handle": "@rd" },
+    "content": {
+      "text": "Je pense , donc je suis"
+    },
+    "created_at": 1461113959088
+  }
+]
 
-const createTweetElement = function (object) {
+const renderTweets = function(tweetArray) {
+  for(let index of tweetArray){
+    const tweet = createTweetElement(index);
+    // takes return value from createTweetelement functon and appends it to the tweets container
+    $("#tweets-container").append(tweet);
+  }
+}
+
+const createTweetElement = function (tweetObject) {
   const $tweet = $(`
   <article class="all-tweets">
     <header>
-      <p class="user"><i class="user-icon fa-solid fa-user-astronaut"></i> ${tweetData.user.name}</p>
-      <p class="user-id">${tweetData.user.handle}</p>
+      <p class="user"><i class="user-icon fa-solid fa-user-astronaut"></i> ${tweetObject.user.name}</p>
+      <p class="user-id">${tweetObject.user.handle}</p>
     </header>
-    <p class="tweet-content">${tweetData.content.text}</p>
+    <p class="tweet-content">${tweetObject.content.text}</p>
     <footer>
-      <p>${tweetData.created_at}</p>
+      <p>${tweetObject.created_at}</p>
       <p class="icons"><i class="fa-solid fa-flag"></i><i class="fa-solid fa-retweet"></i><i class="fa-solid fa-heart"></i></p>
     </footer>
   </article>`);
   return $tweet;
 };
 
-const $tweet = createTweetElement(tweetData);
-
-console.log($tweet);
-  $("#tweets-container").append($tweet);
-
+renderTweets(data);
