@@ -39,7 +39,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     <!-- App JS -->
-    <script type="text/javascript" src="/scripts/client.js"></script>
+    <script type="text/javascript" src="/scripts/client.js" defer></script>
+    <script src="/scripts/composer-char-counter.js" defer></script>
   </head>
 
   <body>
@@ -77,8 +78,8 @@
             <output name="counter" class="counter" for="tweet-text">140</output>
           </div>
         </form>
-        <section class="all-tweets">
-          <article>
+        <section id="tweets-container">
+          <article class="all-tweets">
             <header>
               <p class="user"><i class="user-icon fa-solid fa-user-astronaut"></i> Hubert</p>
               <p class="user-id">@HFarnsworth</p>
@@ -92,6 +93,5 @@
         </section>
       </section>
     </main>
-    <script src="/scripts/composer-char-counter.js"></script>
   </body>
 </html>
