@@ -11,5 +11,5 @@ $(document).ready(function() {
     } else {
       counter.removeClass("max-count-exceeded");
     }
-  })
+  });
 });
