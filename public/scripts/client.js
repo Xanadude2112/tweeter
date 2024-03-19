@@ -5,48 +5,14 @@
  */
 
 // Fake data taken from initial-tweets.json
-const data = [
-  {
-    "user": {
-      "name": "Hubert",
-      "handle": "@HJFarnsworth"
-    },
-    "content": {
-      "text": "Futurama cracks me up all the time <span>#bitemyshinymetalass🤖</span>" 
-    },
-    "created_at": "1 hour ago"
-  },
-  {
-    "user": {
-      "name": "Newton",
-      "avatars": "https://i.imgur.com/73hZDYK.png"
-      ,
-      "handle": "@SirIsaac"
-    },
-    "content": {
-      "text": "If I have seen further it is by standing on the shoulders of giants" 
-    },
-    "created_at": 1461116232227 
-  },
-  {
-    "user": {
-      "name": "Descartes",
-      "avatars": "https://i.imgur.com/nlhLi3I.png",
-      "handle": "@rd" },
-    "content": {
-      "text": "Je pense , donc je suis"
-    },
-    "created_at": 1461113959088
-  }
-]
 
-const renderTweets = function(tweetArray) {
-  for(let index of tweetArray){
+const renderTweets = function (tweetArray) {
+  for (let index of tweetArray) {
     const tweet = createTweetElement(index);
-    // takes return value from createTweetelement functon and appends it to the tweets container
-    $("#tweets-container").append(tweet);
+    // takes return value from createTweetelement functon and prpends (posts from earliest down to latest post) it to the tweets container
+    $("#tweets-container").prepend(tweet);
   }
-}
+};
 
 const createTweetElement = function (tweetObject) {
   const $tweet = $(`
@@ -57,11 +23,41 @@ const createTweetElement = function (tweetObject) {
     </header>
     <p class="tweet-content">${tweetObject.content.text}</p>
     <footer>
-      <p>${tweetObject.created_at}</p>
+      <p>${timeago.format(tweetObject.created_at)}</p>
       <p class="icons"><i class="fa-solid fa-flag"></i><i class="fa-solid fa-retweet"></i><i class="fa-solid fa-heart"></i></p>
     </footer>
   </article>`);
   return $tweet;
 };
 
-renderTweets(data);
+$("#tweet-form").on("submit", function (event) {
+  event.preventDefault();
+  const formData = $("#tweet-form").serialize(); // converts data into a query string
+  //make an AJAX POST request (with jQuery) *LONGHAND*
+  $.ajax({
+    url: "/tweets", // define the url when youre submitting the request
+    method: "POST", // whatever tweet is submitted will be posted to the server
+    data: formData, // this comes from line 35 which holds the data between lines 70 and 80 in index.html
+    success: function (response) { // if using shorthand .post, success can equate to the .then seen at line 55
+      // when the post has successfully been submitted to the /tweet
+
+      console.log("Tweet submitted successfully:", response);
+    },
+    error: function (error) {
+      // when the post has not successfully been submitted to the /tweet
+
+      console.error("Error submitting tweet:", error);
+    },
+  });
+});
+
+const loadTweets = function () {
+  //make an AJAX GET request (with jQuery) *SHORTHAND*
+  $.get("/tweets").then((tweetData) => { // tweetData gives array of tweets
+    renderTweets(tweetData) // loops through the array see line 9
+  }).catch((error) => {
+    console.log(`Error is: ${error.message}`);
+  });
+};
+
+loadTweets();
