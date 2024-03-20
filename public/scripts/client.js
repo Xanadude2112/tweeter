@@ -53,9 +53,8 @@ $("#tweet-form").on("submit", function (event) {
       success: function (response) {
         // if using shorthand .post, success can equate to the .then seen at line 55
         // when the post has successfully been submitted to the /tweet
-        $.get(loadTweets()).then(function (loadTweets) {
-          textContent.val("");
-        });
+        loadTweets();
+        textContent.val("");
         console.log("Tweet submitted successfully:", response);
       },
       error: function (error) {
