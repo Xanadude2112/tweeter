@@ -55,6 +55,7 @@ $("#tweet-form").on("submit", function (event) {
         // when the post has successfully been submitted to the /tweet
         loadTweets();
         textContent.val("");
+        $('.counter').text('140');
         console.log("Tweet submitted successfully:", response);
       },
       error: function (error) {
@@ -70,6 +71,8 @@ const loadTweets = function () {
   //make an AJAX GET request (with jQuery) *SHORTHAND*
   $.get("/tweets")
     .then((tweetData) => {
+      // Clear the tweet container before loading new tweets
+      $("#tweets-container").empty();
       // tweetData gives array of tweets
       renderTweets(tweetData); // loops through the array see line 9
     })
