@@ -5,6 +5,12 @@
  */
 
 // Fake data taken from initial-tweets.json
+// Escape function to prevent XSS
+const escapeSymbol = function(str) {
+  let div = document.createElement("div");//create empty div
+  div.appendChild(document.createTextNode(str));// Append the string as a text node to the div we created
+  return div.innerHTML;// Return the inner HTML of the div, effectively escaping any HTML symbols
+};
 
 const renderTweets = function (tweetArray) {
   for (let index of tweetArray) {
@@ -19,11 +25,11 @@ const createTweetElement = function (tweetObject) {
   <article class="all-tweets">
     <header>
       <p class="user"><i class="user-icon fa-solid fa-user-astronaut"></i> ${
-        tweetObject.user.name
+        escapeSymbol(tweetObject.user.name)
       }</p>
-      <p class="user-id">${tweetObject.user.handle}</p>
+      <p class="user-id">${escapeSymbol(tweetObject.user.handle)}</p>
     </header>
-    <p class="tweet-content">${tweetObject.content.text}</p>
+    <p class="tweet-content">${escapeSymbol(tweetObject.content.text)}</p>
     <footer>
       <p>${timeago.format(tweetObject.created_at)}</p>
       <p class="icons"><i class="fa-solid fa-flag"></i><i class="fa-solid fa-retweet"></i><i class="fa-solid fa-heart"></i></p>
