@@ -27,6 +27,14 @@
   padding: 1.5%;
 }
 
+.hashtag{
+  color: #009dcd;
+}
+
+.hashtag:hover{
+  color: #007a9f;
+}
+
 #tweet-text:focus{
   outline: none;
 }

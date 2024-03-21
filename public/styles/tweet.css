@@ -41,10 +41,6 @@
   word-wrap: break-word;
 }
 
-.tweet-content span{
-  color: #009dcd;
-}
-
 .all-tweets footer{
   display: flex;
   justify-content: space-between;
