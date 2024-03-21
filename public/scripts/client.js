@@ -42,14 +42,14 @@ $("#tweet-form").on("submit", function (event) {
   event.preventDefault();
   const formData = $("#tweet-form").serialize(); // converts data into a query string
   let textContent = $("#tweet-text");
-  if (textContent.val().length === 0) {
-    alert(
-      `Tweet tweet! There is no tweet in sight, please release one into the air!`
-    );
+  if (textContent.val().trim().length === 0) {
+    // we use .empty to make sure it wont print the error more than once
+    // then we use .slideUp aand then .slideDown to trigger the animation on each click
+    $('#error-message').empty().slideUp().append(`<i class="fa-solid fa-triangle-exclamation"></i> Tweet tweet! There is no tweeter in sight, please release one into the air! <i class="fa-solid fa-triangle-exclamation"></i>`).slideDown();
   } else if (textContent.val().length > 140) {
-    alert(
-      `Tweet tweet! Your tweet is too heavy to fly, you must lighten the weight of your tweet!`
-    );
+    // we use .empty to make sure it wont print the error more than once
+    // then we use .slideUp aand then .slideDown to trigger the animation on each click
+    $('#error-message').empty().slideUp().append(`<i class="fa-solid fa-triangle-exclamation"></i> Tweet tweet! Your tweeter is too heavy to fly, please lighten it so it can take to the air! <i class="fa-solid fa-triangle-exclamation"></i>`).slideDown();
   } else {
     //make an AJAX POST request (with jQuery) *LONGHAND*
     $.ajax({
@@ -62,6 +62,7 @@ $("#tweet-form").on("submit", function (event) {
         loadTweets();
         textContent.val("");
         $('.counter').text('140');
+        $('#error-message').slideUp();
         console.log("Tweet submitted successfully:", response);
       },
       error: function (error) {

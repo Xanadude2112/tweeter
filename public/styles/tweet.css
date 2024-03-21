@@ -38,6 +38,7 @@
   padding: 0 2% 3%;
   border-bottom: 0.3em solid #545149;
   font-weight: 400;
+  word-wrap: break-word;
 }
 
 .tweet-content span{
