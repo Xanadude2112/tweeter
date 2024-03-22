@@ -1,4 +1,4 @@
-// all helpers are imported from index.html line 46
+// all helpers are exported through index.html line 46
 
 // Escape function to prevent XSS
 const escapeSymbol = function(str) {
