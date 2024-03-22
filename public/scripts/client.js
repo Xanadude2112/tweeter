@@ -4,55 +4,9 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
-// Fake data taken from initial-tweets.json
-// Escape function to prevent XSS
-const escapeSymbol = function (str) {
-  let div = document.createElement("div"); //create empty div
-  div.appendChild(document.createTextNode(str)); // Append the string as a text node to the div we created
-  return div.innerHTML; // Return the inner HTML of the div, effectively escaping any HTML symbols
-};
+//////////////////////////////////////////////////////    ALL FUNCTIONS CAN BE FOUND IN helpers.js    ///////////////////////////////////////////////////////
 
-const renderTweets = function (tweetArray) {
-  for (let index of tweetArray) {
-    const tweet = createTweetElement(index);
-    // takes return value from createTweetelement functon and prpends (posts from earliest down to latest post) it to the tweets container
-    $("#tweets-container").prepend(tweet);
-  }
-};
-
-const createTweetElement = function (tweetObject) {
-  const $tweet = $(`
-  <article class="all-tweets">
-    <header>
-      <p class="user"><i class="user-icon fa-solid fa-user-astronaut"></i> ${escapeSymbol(
-        tweetObject.user.name
-      )}</p>
-      <p class="user-id">${escapeSymbol(tweetObject.user.handle)}</p>
-    </header>
-    <p class="tweet-content">${escapeSymbol(tweetObject.content.text)}</p>
-    <footer>
-      <p>${timeago.format(tweetObject.created_at)}</p>
-      <p class="icons"><i class="fa-solid fa-flag"></i><i class="fa-solid fa-retweet"></i><i class="fa-solid fa-heart"></i></p>
-    </footer>
-  </article>`);
-  // Check if the tweet content includes a hashtag
-  if (tweetObject.content.text.includes("#")) {
-    // Wrap the hashtag in a span with the hashtag class
-    const $tweetContent = $tweet.find(".tweet-content");
-    // Replace all occurrences of hashtags (\w+ matches any word character) with a span element
-    // with the class "hashtag". The $1 in the replacement string is a placeholder for the matched
-    // hashtag text.
-    $tweetContent.html(
-      $tweetContent
-        .html()
-        .replace(/#(\w+)/g, '<span class="hashtag">#$1</span>')
-    );
-  }
-
-  return $tweet;
-};
-
-$("#tweet-form").on("submit", function (event) {
+$("#tweet-form").on("submit", function(event) {
   event.preventDefault();
   const formData = $("#tweet-form").serialize(); // converts data into a query string
   let textContent = $("#tweet-text");
@@ -82,7 +36,7 @@ $("#tweet-form").on("submit", function (event) {
       url: "/tweets", // define the url when youre submitting the request
       method: "POST", // whatever tweet is submitted will be posted to the server
       data: formData, // this comes from line 35 which holds the data between lines 70 and 80 in index.html
-      success: function (response) {
+      success: function(response) {
         // if using shorthand .post, success can equate to the .then seen at line 55
         // when the post has successfully been submitted to the /tweet
         loadTweets();
@@ -91,7 +45,7 @@ $("#tweet-form").on("submit", function (event) {
         $("#error-message").slideUp();
         console.log("Tweet submitted successfully:", response);
       },
-      error: function (error) {
+      error: function(error) {
         // when the post has not successfully been submitted to the /tweet
 
         console.error("Error submitting tweet:", error);
@@ -99,19 +53,5 @@ $("#tweet-form").on("submit", function (event) {
     });
   }
 });
-
-const loadTweets = function () {
-  //make an AJAX GET request (with jQuery) *SHORTHAND*
-  $.get("/tweets")
-    .then((tweetData) => {
-      // Clear the tweet container before loading new tweets
-      $("#tweets-container").empty();
-      // tweetData gives array of tweets
-      renderTweets(tweetData); // loops through the array see line 9
-    })
-    .catch((error) => {
-      console.log(`Error is: ${error.message}`);
-    });
-};
 
 loadTweets();

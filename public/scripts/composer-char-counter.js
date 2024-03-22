@@ -6,7 +6,7 @@ $(document).ready(function() {
   textContent.on('input', function() {
     let countText = $(this).val().length;
     let counter = $('.counter').text(140 - countText);
-    if(140 - countText < 0){
+    if (140 - countText < 0) {
       counter.addClass("max-count-exceeded");
     } else {
       counter.removeClass("max-count-exceeded");
