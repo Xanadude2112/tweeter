@@ -21,9 +21,43 @@ nav p b{
   font-weight: 600;
 }
 
-.tweet-btn-container{
+.tweet-btn-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.tweet-btn-container i{
+  animation: hovering 1s ease-in-out infinite; 
+}
+
+@keyframes hovering {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* SMARTPHONE */
+@media only screen and (max-width: 750px) {
+  nav{
+    background-color: #d68800;
+    background-image: url("https://www.transparenttextures.com/patterns/cardboard.png");
+    position: static;
+  }
+}
+
+/* TABLET */
+@media only screen and (min-width: 750px) and (max-width: 1024px) {
+  nav{
+    background-color: #d68800;
+    background-image: url("https://www.transparenttextures.com/patterns/cardboard.png");
+    position: static;
+  }
 }

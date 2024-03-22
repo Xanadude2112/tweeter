@@ -35,4 +35,28 @@ body {
   margin: 0 auto;
   background-color: inherit;
  }
+
+ #master-div{
+  padding:5%;
+  display: flex;
+  gap: 5%;
+ }
  
+ /* SMARTPHONE */
+@media only screen and (max-width: 750px) {
+  #master-div{
+    display: flex;
+    flex-direction: column;
+    padding:0;
+   }
+}
+
+ /* TABLET */
+ @media screen and (min-width: 750px) and (max-width: 1024px){
+  #master-div{
+    display: flex;
+    flex-direction: column;
+    padding:0;
+   }
+   
+}
