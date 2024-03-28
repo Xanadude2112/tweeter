@@ -29,6 +29,8 @@ module.exports = function(DataHelpers) {
       content: {
         text: req.body.text
       },
+      likes: 0,
+      retweets: 0,
       created_at: Date.now()
     };
 

@@ -8,7 +8,9 @@
     "content": {
       "text": "If I have seen further it is by standing on the shoulders of giants"
     },
-    "created_at": 1710955913570
+    "likes": 67,
+    "retweets": 19,
+    "created_at": 1711318779309
   },
   {
     "user": {
@@ -19,6 +21,8 @@
     "content": {
       "text": "Je pense , donc je suis"
     },
-    "created_at": 1711042313570
+    "likes": 46,
+    "retweets": 12,
+    "created_at": 1711405179310
   }
 ]

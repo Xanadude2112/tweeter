@@ -15,7 +15,32 @@ const renderTweets = function(tweetArray) {
   }
 };
 
+const randomNumberGen = (n) => {
+  const number = Math.floor(Math.random(n) * 9) + 1;
+  return number * 1000;
+};
+
+
+// RETWEET HANDLER
+$("#tweets-container").on("click", "i.retweet", function() { 
+  const $icon = $(this);
+  const $count = $icon.siblings("span").eq(0); // Select the retweet count element
+  let current = Number($count.text()); // Retrieve current valu of the text and make it a number
+  // Increment the count when the button is clicked
+  $count.text(current + 1);
+});
+
+  //LIKE HANDLER
+  $("#tweets-container").on("click", "i.like", function() { 
+    const $icon = $(this);
+    const $count = $icon.siblings("span").eq(1); // Select the retweet count element
+    let current = Number($count.text()); // Retrieve current valu of the text and make it a number
+    // Increment the count when the button is clicked
+    $count.text(current + 1);
+  });
+
 const createTweetElement = function(tweetObject) {
+
   const $tweet = $(`
   <article class="all-tweets">
     <header>
@@ -27,11 +52,13 @@ const createTweetElement = function(tweetObject) {
     <p class="tweet-content">${escapeSymbol(tweetObject.content.text)}</p>
     <footer>
       <p>${timeago.format(tweetObject.created_at)}</p>
-      <p class="icons"><i class="fa-solid fa-flag"></i><i class="fa-solid fa-retweet"></i><i class="fa-solid fa-heart"></i></p>
+      <p class="icons"><i class="flag fa-solid fa-flag"></i><i class="retweet fa-solid fa-retweet"></i><span>${tweetObject.retweets || 0}</span><i class="like fa-solid fa-heart"></i><span>${tweetObject.likes || 0}</span></p>
     </footer>
   </article>`);
+
+
   // Check if the tweet content includes a hashtag
-  if (tweetObject.content.text.includes("#")) {
+  if (tweetObject.content.text.includes("#") || tweetObject.content.text.includes("@")) {
     // Wrap the hashtag in a span with the hashtag class
     const $tweetContent = $tweet.find(".tweet-content");
     // Replace all occurrences of hashtags (\w+ matches any word character) with a span element
@@ -40,7 +67,7 @@ const createTweetElement = function(tweetObject) {
     $tweetContent.html(
       $tweetContent
         .html()
-        .replace(/#(\w+)/g, '<span class="hashtag">#$1</span>')
+        .replace(/(#|\@)(\w+)/g, '<span class="hashtag">$1$2</span>')
     );
   }
 

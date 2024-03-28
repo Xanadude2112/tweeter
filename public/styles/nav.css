@@ -1,24 +1,29 @@
-nav{
+nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
   height: 120px;
   width: 100dvw;
-  background-color: #4056A1;
-  color: #FFFFFF;
+  background-color: #4056a1;
+  color: #ffffff;
   padding: 0 1.5em;
   position: fixed;
   top: 0;
 }
 
-nav span{
+nav span {
   font-family: "Bungee", sans-serif;
   font-size: 2.5rem;
   font-weight: 600;
 }
 
-nav p b{
+nav p b {
   font-weight: 600;
+}
+
+nav a {
+  text-decoration: none;
+  color: #ffffff;
 }
 
 .tweet-btn-container {
@@ -26,10 +31,16 @@ nav p b{
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  position: relative;
 }
 
-.tweet-btn-container i{
-  animation: hovering 1s ease-in-out infinite; 
+#down-arrow {
+  color: #ff4000;
+  transition: 0.5s ease;
+  animation: hovering 1s ease-in-out infinite;
+  position: absolute; /* Position the icon relative to its container */
+  top: 83%; /* Position it vertically at the center */
+  transform: translateY(-50%, -50%); /* Adjust for vertical centering */
 }
 
 @keyframes hovering {
@@ -44,20 +55,48 @@ nav p b{
   }
 }
 
+#down-arrow:hover {
+  color: #ffcb71;
+  filter: drop-shadow(0 0 1.5rem #ffffff);
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.down-arrow-click {
+  color: #060e28 !important;
+  font-size: 1rem !important;
+}
+
 /* SMARTPHONE */
 @media only screen and (max-width: 750px) {
-  nav{
+  nav {
     background-color: #d68800;
     background-image: url("https://www.transparenttextures.com/patterns/cardboard.png");
     position: static;
+  }
+
+  #down-arrow {
+    color: #4056a1;
+  }
+
+  #down-arrow:hover {
+    color: #ffffff;
   }
 }
 
 /* TABLET */
 @media only screen and (min-width: 750px) and (max-width: 1024px) {
-  nav{
+  nav {
     background-color: #d68800;
     background-image: url("https://www.transparenttextures.com/patterns/cardboard.png");
     position: static;
+  }
+
+  #down-arrow {
+    color: #4056a1;
+  }
+
+  #down-arrow:hover {
+    color: #ffffff;
   }
 }

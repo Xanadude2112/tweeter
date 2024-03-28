@@ -5,6 +5,41 @@
  */
 
 //////////////////////////////////////////////////////    ALL FUNCTIONS CAN BE FOUND IN helpers.js    ///////////////////////////////////////////////////////
+const tweetArrows = $("#down-arrow");
+const textArea = $("#tweet-text");
+
+// For touch interactions
+tweetArrows.on("touchstart", function() {
+  console.log("Touch start event triggered");
+  tweetArrows.addClass("down-arrow-click");
+});
+
+tweetArrows.on("touchend", function() {
+  console.log("Touch end event triggered");
+  tweetArrows.removeClass("down-arrow-click");
+  textArea.click();
+  textArea.focus(); 
+});
+
+// For mouse clicks
+tweetArrows.on("mousedown", function() {
+  tweetArrows.addClass("down-arrow-click");
+});
+
+tweetArrows.on("mouseup", function() {
+  tweetArrows.removeClass("down-arrow-click");
+  textArea.click();
+  textArea.focus(); 
+});
+
+// Allow the usse of the enter button to submit a tweet
+$("#tweet-text").on("keydown", function(event) {
+  if (event.keyCode === 13 && !event.shiftKey) {
+    event.preventDefault(); // prevent default behavior of pressing Enter (new line)
+    $("#tweet-form").submit(); // submit the form
+
+  }
+});
 
 $("#tweet-form").on("submit", function(event) {
   event.preventDefault();
