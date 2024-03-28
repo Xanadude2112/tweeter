@@ -14,11 +14,11 @@ On this site, you can find a couple of familiar UI and UX features that have bee
 
 ## Final Product
 
-!["Screenshot of URLs page"]
+!["Screenshot of Tweeter page with first error message"] (https://github.com/Xanadude2112/tweeter/blob/main/docs/tweeter-error.png?raw=true)
 
-!["Screenshot of URLs page"]
+!["Screenshot of Tweeter page with second error message"] (https://github.com/Xanadude2112/tweeter/blob/main/docs/tweeter-error2.png?raw=true)
 
-!["Screenshot of URLs page"]
+!["Screenshot of URLs page"] 
 
 
 ## Getting Started
@@ -41,31 +41,3 @@ On this site, you can find a couple of familiar UI and UX features that have bee
 ## DevDependencies
 
 - Nodemon
-
-
-
-# TinyApp Project
-
-TinyApp is a full stack web application built with Node and Express that allows users to shorten long URLs (à la bit.ly).
-
-You can share your URLs with others, a well as have your own personalized account with whichever valid URLs you choose.
-
-## Final Product
-
-!["Screenshot of URLs page"](https://github.com/Xanadude2112/tinyapp/blob/main/docs/urls-page.png?raw=true)
-!["Screenshot of new URLs creation page"](https://github.com/Xanadude2112/tinyapp/blob/main/docs/create-new-url-page.png.png?raw=true)
-!["Screenshot of login page"](https://github.com/Xanadude2112/tinyapp/blob/main/docs/login-page.png?raw=true)
-
-## Dependencies
-
-- Node.js
-- Express
-- EJS
-- bcryptjs
-- cookie-session
-
-## Getting Started
-
-- Install all dependencies (using the `npm install <the dev dependency you wish to install>` command).
-- Run the development web server using the `node express_server.js` command.
-Instruction
