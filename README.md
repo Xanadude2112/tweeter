@@ -14,11 +14,19 @@ On this site, you can find a couple of familiar UI and UX features that have bee
 
 ## Final Product
 
-!["Screenshot of Tweeter page with first error message"] (https://github.com/Xanadude2112/tweeter/blob/main/docs/tweeter-error.png?raw=true)
+!["Screenshot of Tweeter page with first error message"](https://github.com/Xanadude2112/tweeter/blob/main/docs/tweeter-error.png?raw=true)
 
-!["Screenshot of Tweeter page with second error message"] (https://github.com/Xanadude2112/tweeter/blob/main/docs/tweeter-error2.png?raw=true)
+!["Screenshot of Tweeter page with second error message"](https://github.com/Xanadude2112/tweeter/blob/main/docs/tweeter-error2.png?raw=true)
 
-!["Screenshot of URLs page"] 
+!["Screenshot of Tweeter page"](https://github.com/Xanadude2112/tweeter/blob/main/docs/tweeter3.png?raw=true)
+
+!["Screenshot of Tweeters"](https://github.com/Xanadude2112/tweeter/blob/main/docs/tweeter2.png?raw=true)
+
+!["Screenshot of Tweeters"](https://github.com/Xanadude2112/tweeter/blob/main/docs/tweeter.png?raw=true)
+
+!["Screenshot of Tweeter tablet / mobile responsiveness"](https://github.com/Xanadude2112/tweeter/blob/main/docs/tweeter-ipad.png?raw=true)
+
+!["Screenshot of Tweeter tablet / mobile responsiveness"](https://github.com/Xanadude2112/tweeter/blob/main/docs/tweeter-ipad2.png?raw=true)
 
 
 ## Getting Started
