@@ -57,14 +57,24 @@
   gap: 7px;
 }
 
-.icons .flag{
+.flag{
   padding-right: 7%;
 }
 
-.icons .flag:hover{
-  padding-right: 7%;
+.red-flag{
+  color: #ff0000;
+}
+
+.flag:hover{
   color: #ff0000;
   cursor: pointer;
+}
+
+.span-flag{
+  color: #ff0000;
+  font-size: 0.9rem;
+  font-weight: 600;
+  display: none;
 }
 
 .icons .retweet:hover{

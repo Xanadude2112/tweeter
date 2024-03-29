@@ -20,11 +20,22 @@ const randomNumberGen = (n) => {
   return number * 1000;
 };
 
+//FLAG HANDLER
+$('#tweets-container').on("click", "i.flag", function() {
+  const $flag = $(this);
+  $flag.toggleClass("red-flag");
+  const $spanFlag = $flag.siblings('.span-flag');
+  if ($flag.hasClass("red-flag")) {
+    $spanFlag.slideDown();
+  } else {
+    $spanFlag.slideUp();
+  }
+});
 
 // RETWEET HANDLER
 $("#tweets-container").on("click", "i.retweet", function() { 
   const $icon = $(this);
-  const $count = $icon.siblings("span").eq(0); // Select the retweet count element
+  const $count = $icon.siblings("span").eq(1); // Select the retweet count element
   let current = Number($count.text()); // Retrieve current valu of the text and make it a number
   // Increment the count when the button is clicked
   $count.text(current + 1);
@@ -33,7 +44,7 @@ $("#tweets-container").on("click", "i.retweet", function() {
   //LIKE HANDLER
   $("#tweets-container").on("click", "i.like", function() { 
     const $icon = $(this);
-    const $count = $icon.siblings("span").eq(1); // Select the retweet count element
+    const $count = $icon.siblings("span").eq(2); // Select the retweet count element
     let current = Number($count.text()); // Retrieve current valu of the text and make it a number
     // Increment the count when the button is clicked
     $count.text(current + 1);
@@ -52,7 +63,7 @@ const createTweetElement = function(tweetObject) {
     <p class="tweet-content">${escapeSymbol(tweetObject.content.text)}</p>
     <footer>
       <p>${timeago.format(tweetObject.created_at)}</p>
-      <p class="icons"><i class="flag fa-solid fa-flag"></i><i class="retweet fa-solid fa-retweet"></i><span>${tweetObject.retweets || 0}</span><i class="like fa-solid fa-heart"></i><span>${tweetObject.likes || 0}</span></p>
+      <p class="icons"><span class="span-flag">Flagged!</span><i class="flag fa-solid fa-flag"></i><i class="retweet fa-solid fa-retweet"></i><span>${tweetObject.retweets || 0}</span><i class="like fa-solid fa-heart"></i><span>${tweetObject.likes || 0}</span></p>
     </footer>
   </article>`);
 
