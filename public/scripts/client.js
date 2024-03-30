@@ -10,12 +10,10 @@ const $textArea = $("#tweet-text");
 
 // For touch interactions
 $tweetArrows.on("touchstart", function() {
-  console.log("Touch start event triggered");
   $tweetArrows.addClass("down-arrow-click");
 });
 
 $tweetArrows.on("touchend", function() {
-  console.log("Touch end event triggered");
   $tweetArrows.removeClass("down-arrow-click");
   $textArea.click();
   $textArea.focus(); 
