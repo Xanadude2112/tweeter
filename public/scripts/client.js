@@ -5,31 +5,31 @@
  */
 
 //////////////////////////////////////////////////////    ALL FUNCTIONS CAN BE FOUND IN helpers.js    ///////////////////////////////////////////////////////
-const tweetArrows = $("#down-arrow");
-const textArea = $("#tweet-text");
+const $tweetArrows = $("#down-arrow");
+const $textArea = $("#tweet-text");
 
 // For touch interactions
-tweetArrows.on("touchstart", function() {
+$tweetArrows.on("touchstart", function() {
   console.log("Touch start event triggered");
-  tweetArrows.addClass("down-arrow-click");
+  $tweetArrows.addClass("down-arrow-click");
 });
 
-tweetArrows.on("touchend", function() {
+$tweetArrows.on("touchend", function() {
   console.log("Touch end event triggered");
-  tweetArrows.removeClass("down-arrow-click");
-  textArea.click();
-  textArea.focus(); 
+  $tweetArrows.removeClass("down-arrow-click");
+  $textArea.click();
+  $textArea.focus(); 
 });
 
 // For mouse clicks
-tweetArrows.on("mousedown", function() {
-  tweetArrows.addClass("down-arrow-click");
+$tweetArrows.on("mousedown", function() {
+  $tweetArrows.addClass("down-arrow-click");
 });
 
-tweetArrows.on("mouseup", function() {
-  tweetArrows.removeClass("down-arrow-click");
-  textArea.click();
-  textArea.focus(); 
+$tweetArrows.on("mouseup", function() {
+  $tweetArrows.removeClass("down-arrow-click");
+  $textArea.click();
+  $textArea.focus(); 
 });
 
 // Allow the usse of the enter button to submit a tweet
