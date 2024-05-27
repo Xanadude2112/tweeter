@@ -30,14 +30,14 @@ $tweetArrows.on("mouseup", function() {
   $textArea.focus(); 
 });
 
-// Allow the usse of the enter button to submit a tweet
-$("#tweet-text").on("keydown", function(event) {
-  if (event.keyCode === 13 && !event.shiftKey) {
-    event.preventDefault(); // prevent default behavior of pressing Enter (new line)
-    $("#tweet-form").submit(); // submit the form
+// // Allow the usse of the enter button to submit a tweet
+// $("#tweet-text").on("keydown", function(event) {
+//   if (event.keyCode === 13 && !event.shiftKey) {
+//     event.preventDefault(); // prevent default behavior of pressing Enter (new line)
+//     $("#tweet-form").submit(); // submit the form
 
-  }
-});
+//   }
+// });
 
 $("#tweet-form").on("submit", function(event) {
   event.preventDefault();
